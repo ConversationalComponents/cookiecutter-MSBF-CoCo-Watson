@@ -1,5 +1,11 @@
 # cookiecutter-MSBF-CoCo-Watson
 
+## Download
+
+Run the following command: <br>
+``` cookiecutter  https://github.com/ConversationalComponents/cookiecutter-MSBF-CoCo-Watson.git ```
+
+
 ## Configure:
 
 ### Add IBM Watson Assistant Credentials To Config:
