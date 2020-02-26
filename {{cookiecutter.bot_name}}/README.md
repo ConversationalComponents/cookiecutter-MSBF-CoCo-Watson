@@ -10,6 +10,14 @@ This sample **requires** prerequisites in order to run.
 
 ### Install Python 3.6
 
+### Install Cookie Cutter
+
+Run `pip install cookiecutter`
+
+### Get Sample
+
+Run `cookiecutter https://github.com/ConversationalComponents/cookiecutter-MSBF-CoCo-Watson.git`
+
 ## Running the sample
 - Run `pip install -r requirements.txt` to install all dependencies
 - Run `python app.py`

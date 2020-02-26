@@ -1,4 +1,6 @@
 {
 	"bot_name": "JohnTheBot",
-	"bot_description": "A nice Bot"
+	"bot_description": "A nice Bot",
+	"watson_assistant_id": "",
+	"watson_assistant_api_key": ""
 }

@@ -12,5 +12,5 @@ class DefaultConfig:
     APP_ID = os.environ.get("MicrosoftAppId", "")
     APP_PASSWORD = os.environ.get("MicrosoftAppPassword", "")
 
-    WATSON_ASSISTANT_ID = ""
-    WATSON_API_KEY = ""
+    WATSON_ASSISTANT_ID = "{{cookiecutter.watson_assistant_id}}"
+    WATSON_API_KEY = "{{cookiecutter.watson_assistant_api_key}}"
