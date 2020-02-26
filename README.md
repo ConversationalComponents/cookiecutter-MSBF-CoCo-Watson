@@ -10,20 +10,16 @@ This sample **requires** prerequisites in order to run.
 
 ## Download:
 
+### Install Python 3.6
+
+### Install Cookie Cutter
+Run `pip install cookiecutter`
+
+### Get Sample
+
 Run the following command: <br>
 ``` cookiecutter  https://github.com/ConversationalComponents/cookiecutter-MSBF-CoCo-Watson.git ```
 
-### Install Python 3.6
-
-## Configure:
-
-### Add IBM Watson Assistant Credentials To Config:
- * Go to config.py
- * Update the following parameters: <br>
-```python
-    WATSON_ASSISTANT_ID = "" 
-    WATSON_API_KEY = ""
- ```
 
 ## Running the sample
 - Run `pip install -r requirements.txt` to install all dependencies
