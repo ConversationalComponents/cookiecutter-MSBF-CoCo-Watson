@@ -9,7 +9,27 @@ from coco_microsoft_bot_framework import CoCoActivityHandler
 from watson_session import AssistantSessionV2
 from config import DefaultConfig
 
+from lxml import etree
+
 CONFIG = DefaultConfig()
+
+
+def fetch_triggered_components(text_with_tags):
+    """
+    fetch triggered components from text tags .
+
+    Arguments:
+        text_with_tags: (string) Text response.
+    Returns:
+         text_response, triggered components list (tuple).
+    """
+    xml_response = etree.fromstring(f"<resp>{text_with_tags}</resp>")
+
+    text_response = xml_response.text
+
+    triggered_comps = [ecomp.attrib.get("id") for ecomp in xml_response.xpath("//component")]
+
+    return text_response if text_response else "", triggered_comps
 
 
 class MyBot(CoCoActivityHandler):
@@ -27,9 +47,15 @@ class MyBot(CoCoActivityHandler):
 
         responses_list = watson_response.get("output", {}).get("generic")
 
-        text_response = responses_list[0].get('text', "") if responses_list else ""
+        response_text_with_tags = responses_list[0].get('text', "") if responses_list else ""
+
+        text_response, triggered_comps = fetch_triggered_components(
+            response_text_with_tags)
 
         await turn_context.send_activity(text_response)
+
+        if len(triggered_comps) > 0:
+            await self.activate_component(turn_context, triggered_comps[0])
 
     async def on_members_added_activity(
         self,
